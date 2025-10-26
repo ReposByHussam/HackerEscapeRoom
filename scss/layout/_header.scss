@@ -52,14 +52,6 @@
         color: t.$clr-blue;
       }
     }
-    &__brand {
-      grid-column: 1;
-    }
-    &__nav {
-      gap: 5rem;
-      grid-column: 2;
-      justify-self: center;
-    }
   }
 }
 .hero {
@@ -71,6 +63,14 @@
     display: block;
     object-fit: cover;
     object-position: center center;
+  }
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    box-sizing: border-box;
+    min-height: 44px;
   }
   &__cta {
     position: absolute;
@@ -90,7 +90,7 @@
     }
   }
   &__btn--onsite {
-    padding: 0.75rem 1.25rem;
+    padding: 1rem 1.5rem;
     border-radius: t.$radius;
   }
 
@@ -100,17 +100,79 @@
       color: #fff;
       text-decoration: none;
       border-radius: t.$radius;
+      padding: 1rem 1.5rem;
     }
   }
 }
 @include m.mq(t.$bp-lg) {
   .header__bar {
-    align-items: flex-end;
+    display: grid;
+    grid-template-areas: "brand" "nav";
+    justify-items: center;
+    row-gap: 0.75rem;
+    padding-block: 1rem;
+    justify-items: stretch;
   }
+  .header__brand {
+    grid-area: brand;
+    justify-self: start;
+  }
+  .header__nav {
+    grid-area: nav;
+    justify-self: center;
+    width: 100%;
+    margin: 0 25rem;
+  }
+
   .brand {
+    display: flex;
     align-items: flex-end;
-    gap: 0.75rem;
+    justify-content: flex-start;
+    gap: 0;
+    margin: -0.5rem 0 0 -3.5rem;
+    &__logo {
+      width: 90px;
+      display: block;
+    }
+    &__title {
+      margin: 0;
+      font-weight: 700;
+      font-size: t.$fs-200;
+      line-height: 1;
+      span {
+        display: inline;
+      }
+    }
   }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__list {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+      justify-content: center;
+    }
+    &__link {
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+        color: t.$clr-blue;
+      }
+    }
+  }
+  .hero__image {
+    height: clamp(35rem, 50vh, 0rem);
+    object-fit: cover;
+    object-position: center center;
+  }
+
   .brand__logo {
     align-self: flex-end;
   }
@@ -118,7 +180,9 @@
     display: flex;
     gap: 0.4rem;
     line-height: 1;
+    font-size: t.$fs-400;
     padding-bottom: 0.1rem;
+    padding-inline: 0.4rem;
   }
   .brand__title span {
     display: inline;

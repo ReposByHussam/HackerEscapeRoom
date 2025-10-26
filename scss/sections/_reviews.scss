@@ -24,7 +24,7 @@
     list-style: none;
     @include m.mq(t.$bp-lg) {
       grid-template-columns: 1fr 1fr;
-      gap: 5rem;
+      gap: 3rem;
       margin: 5rem 5rem 5rem 5rem;
       margin-inline: auto;
       max-width: 55rem;
@@ -42,7 +42,7 @@
   max-width: 36rem;
   width: 100%;
   margin-inline: auto;
-  margin: 3rem auto 0;
+  margin: 4.5rem auto 1.5rem 0;
 
   &__avatar {
     grid-row: 1 / span 2;

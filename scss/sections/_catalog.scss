@@ -60,6 +60,7 @@
       gap: 2rem;
       overflow-x: visible;
       -webkit-overflow-scrolling: auto;
+
       scroll-snap-type: none;
       scroll-padding-left: 0;
       padding: 0;
@@ -90,6 +91,25 @@
         text-decoration: none;
         padding: 0.75rem 1.25rem;
       }
+    }
+  }
+  @include m.mq(t.$bp-lg) {
+    &__cards {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .catalog__btn--online {
+      order: 1;
+      background-color: t.$clr-red;
+      color: #fff;
+      text-decoration: none;
+      padding: 1rem 1.5rem;
+    }
+    .catalog__btn--onsite {
+      order: 2;
+      background: t.$clr-blue-bright;
+      color: #011827;
+      text-decoration: none;
+      padding: 1rem 1.5rem;
     }
   }
   @include m.mq(t.$bp-xl) {
