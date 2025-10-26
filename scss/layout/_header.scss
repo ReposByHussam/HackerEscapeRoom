@@ -1,0 +1,126 @@
+@use "../tokens" as t;
+@use "../mixins" as m;
+
+.header {
+  background: t.$clr-navydark;
+  color: #fff;
+  &__bar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding-block: 0.75rem;
+    gap: 1rem;
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  &__logo {
+    width: 90px;
+    border-radius: t.$radius;
+    display: block;
+  }
+  &__title {
+    margin: 0;
+    font-weight: 700;
+    font-size: t.$fs-200;
+    line-height: 1.15;
+    span {
+      display: block;
+    }
+  }
+}
+.nav {
+  display: none;
+  @include m.mq(t.$bp-lg) {
+    display: block;
+    &__list {
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    &__link {
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+        color: t.$clr-blue;
+      }
+    }
+    &__brand {
+      grid-column: 1;
+    }
+    &__nav {
+      gap: 5rem;
+      grid-column: 2;
+      justify-self: center;
+    }
+  }
+}
+.hero {
+  position: relative;
+  margin-bottom: 3.5rem;
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+  }
+  &__cta {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    margin-top: 2.5rem;
+    transform: translate(-50%, 115%);
+    display: grid;
+    gap: 0.75rem;
+    display: flex;
+    flex-direction: column-reverse;
+    @include m.mq(t.$bp-lg) {
+      display: flex;
+      flex-direction: row;
+      gap: 0.75rem;
+      transform: translate(-50%, 50%);
+    }
+  }
+  &__btn--onsite {
+    padding: 0.75rem 1.25rem;
+    border-radius: t.$radius;
+  }
+
+  &__btn--online {
+    @include m.mq(t.$bp-lg) {
+      background: t.$clr-red;
+      color: #fff;
+      text-decoration: none;
+      border-radius: t.$radius;
+    }
+  }
+}
+@include m.mq(t.$bp-lg) {
+  .header__bar {
+    align-items: flex-end;
+  }
+  .brand {
+    align-items: flex-end;
+    gap: 0.75rem;
+  }
+  .brand__logo {
+    align-self: flex-end;
+  }
+  .brand__title {
+    display: flex;
+    gap: 0.4rem;
+    line-height: 1;
+    padding-bottom: 0.1rem;
+  }
+  .brand__title span {
+    display: inline;
+  }
+}

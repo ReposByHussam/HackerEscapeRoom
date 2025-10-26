@@ -1,0 +1,103 @@
+@use "../tokens" as t;
+@use "../mixins" as m;
+.catalog {
+  &__title {
+    text-align: center;
+    margin: 1.25rem auto 0.75rem;
+    font-size: t.$fs-300;
+  }
+  &__cards {
+    width: 100%;
+    display: flex;
+    gap: 3rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    list-style: none;
+    margin: 0;
+    padding: 0 1rem 0.25rem;
+    .catalog__item {
+      flex: 0 0 95%;
+      max-width: 25rem;
+      scroll-snap-align: start;
+    }
+  }
+  &__cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0.75rem 0 0;
+
+    .catalog__btn {
+      justify-self: center;
+      font-weight: 700;
+      border-radius: t.$radius;
+      padding: 0.75rem 1.25rem;
+      text-decoration: none;
+    }
+    .catalog__btn--onsite {
+      background: t.$clr-blue-bright;
+      color: #011827;
+    }
+    .catalog__btn--online {
+      background: transparent;
+      color: t.$clr-blue;
+      text-decoration: underline;
+    }
+  }
+  .btn--primary {
+    border-radius: t.$radius;
+    padding: 0.75rem 1.25rem;
+    font-weight: 500;
+  }
+
+  @include m.mq(t.$bp-md) {
+    &__cards {
+      overflow: visible;
+      padding: 0;
+      display: grid;
+      gap: 2rem;
+      overflow-x: visible;
+      -webkit-overflow-scrolling: auto;
+      scroll-snap-type: none;
+      scroll-padding-left: 0;
+      padding: 0;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      .catalog__item {
+        flex: initial;
+        max-width: none;
+        scroll-snap-align: unset;
+      }
+    }
+    &__cta {
+      flex-direction: row;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.25rem;
+      margin-bottom: 2.5rem;
+      .catalog__btn--online {
+        order: 1;
+        background-color: t.$clr-red;
+        color: #fff;
+        text-decoration: none;
+        padding: 0.75rem 1.25rem;
+      }
+      .catalog__btn--onsite {
+        order: 2;
+        background: t.$clr-blue-bright;
+        color: #011827;
+        text-decoration: none;
+        padding: 0.75rem 1.25rem;
+      }
+    }
+  }
+  @include m.mq(t.$bp-xl) {
+    &__cards {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 22.5rem) {
+    grid-template-columns: 1fr;
+  }
+}

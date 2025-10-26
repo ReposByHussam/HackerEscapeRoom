@@ -1,0 +1,47 @@
+@use "../tokens" as t;
+.card {
+  width: 100%;
+  border: 1px solid #e9eef5;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-radius: t.$radius-round;
+  box-shadow: 0.5rem 0.5rem 2.5rem rgb(160, 158, 158);
+  margin: 5rem 0;
+
+  &__media {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  &__title {
+    margin: 0 1rem;
+    font-size: t.$fs-450;
+    font-weight: 600;
+  }
+  &__rating {
+    margin: 0 2rem 0.5rem 1rem;
+    color: t.$clr-red;
+    font-size: t.$fs-100;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    .card__meta {
+      color: #011827;
+      margin-left: 0.5rem;
+    }
+  }
+  &__text {
+    margin: 0 1rem;
+    font-size: t.$fs-200;
+    flex: 1;
+  }
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0.75rem;
+    border-radius: t.$radius;
+  }
+}

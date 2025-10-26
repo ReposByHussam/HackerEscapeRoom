@@ -1,0 +1,47 @@
+@use "../tokens" as t;
+@use "../mixins" as m;
+
+.story {
+  background: t.$clr-navydark;
+  color: #fff;
+
+  &__container {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    padding-block: 2.25rem;
+  }
+  &__text {
+    max-width: 24rem;
+    margin: 0 1rem 1rem;
+    font-size: t.$fs-300;
+    line-height: 1.5;
+  }
+  &__btn {
+    border: 2px solid t.$clr-blue-bright;
+    color: t.$clr-blue-bright;
+    background: transparent;
+    border-radius: t.$radius;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0.75rem 1.25rem;
+  }
+}
+@include m.mq(t.$bp-lg) {
+  .story {
+    height: 17.5rem;
+    &__container {
+      padding-block: 3rem;
+    }
+    &__text {
+      max-width: 38rem;
+      font-size: t.$fs-200;
+      margin-top: 2rem;
+      margin-bottom: 1.75rem;
+    }
+    &__btn {
+      margin-top: 0.5rem;
+      padding: 0.75rem 1.25rem;
+    }
+  }
+}

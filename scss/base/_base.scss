@@ -1,0 +1,24 @@
+@use "../tokens" as t;
+@use "../mixins" as m;
+
+body {
+  font: 16px/1.5 t.$font;
+  color: #0b1320;
+  background: #fff;
+}
+.container {
+  @include m.container;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+a {
+  color: t.$clr-blue;
+  text-decoration: underline;
+}
+.visually-hidden {
+  @extend %visually-hidden;
+}
