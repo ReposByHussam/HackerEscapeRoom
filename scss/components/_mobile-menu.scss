@@ -1,0 +1,77 @@
+@use "../tokens" as t;
+@use "../mixins" as m;
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.3);
+  display: grid;
+  place-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  &[hidden] {
+    display: none !important;
+  }
+  &.is-open {
+    opacity: 1;
+  }
+  .mobile-menu__panel {
+    display: grid;
+    width: min(90vw, 26rem);
+    height: calc(100vh - 4rem);
+    background: t.$clr-navydark;
+    color: #fff;
+    grid-template-rows: auto 1fr;
+    padding: 1rem 1.25rem;
+    transform: scale(0.92);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  &.is-open .mobile-menu__panel {
+    transform: scale(1);
+    opacity: 1;
+  }
+  .mobile-menu__close {
+    justify-self: end;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 4rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .mobile-menu__list {
+    list-style: none;
+    margin: 4rem auto;
+    padding: 2.5rem;
+    align-self: center;
+    justify-self: center;
+    display: grid;
+    gap: 1.25rem;
+    text-align: center;
+  }
+  .mobile-menu__link {
+    display: grid;
+    grid-template-columns: auto;
+    margin: 0.5rem 0;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: t.$fs-400;
+  }
+  .mobile-menu__link:hover,
+  .mobile-menu__link:focus-visible {
+    text-decoration: underline;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+@media (min-width: 64rem) {
+  .mobile-menu {
+    display: none !important;
+  }
+}

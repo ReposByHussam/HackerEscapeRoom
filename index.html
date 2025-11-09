@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+
     <title>HackerEscapeRoom</title>
   </head>
   <body>
@@ -35,7 +36,29 @@
             </li>
           </ul>
         </nav>
+        <button
+          class="menu-toggle"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          aria-label="Open menu"
+          type="button"
+        >
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+        </button>
       </div>
+      <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile" hidden>
+        <div class="mobile-menu__panel">
+          <button class="mobile-menu__close" aria-label="Close menu">x</button>
+          <ul class="mobile-menu__list">
+            <li><a class="mobile-menu__link" href="#">Play online</a></li>
+            <li><a class="mobile-menu__link" href="#">Play on-site</a></li>
+            <li><a class="mobile-menu__link" href="#">The story</a></li>
+            <li><a class="mobile-menu__link" href="#">Contact us</a></li>
+          </ul>
+        </div>
+      </nav>
       <div class="hero header__hero">
         <img class="hero__image" src="hacker_image.png" alt="ESC" />
         <div class="hero__cta">
@@ -250,5 +273,6 @@
         </section>
       </div>
     </footer>
+    <script src="./js/script.js" defer></script>
   </body>
 </html>
